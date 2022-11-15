@@ -11,24 +11,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.adsidsearch.ui.theme.AdsIDSearchTheme
-import com.google.android.gms.ads.MobileAds
 import com.krux.androidsdk.aggregator.KruxEventAggregator
 import com.krux.androidsdk.aggregator.KruxSegments
-
-
-
-//import com.google.android.gms.ads.identifier.AdvertisingIdClient
+import com.google.android.gms.ads.identifier.AdvertisingIdClient
 
 class MainActivity : ComponentActivity() {
     val emptyClass = EmptyClass(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        MobileAds.initialize(this) {}
-
-//        emptyClass.beingCalled()
+        emptyClass.beingCalled()
 
         val kruxSegmentsCallback = KruxSegments {}
+
         KruxEventAggregator.initialize(this, "copy_from_krux_ui", kruxSegmentsCallback , true);
 
         setContent {
@@ -45,7 +40,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun notBeingCalled() {
-//        AdvertisingIdClient.getAdvertisingIdInfo(this)
+        AdvertisingIdClient.getAdvertisingIdInfo(this)
     }
 }
 
